@@ -22,6 +22,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <%%# Prevents the app is indexed by Google %>
+    <%% if ENV.fetch("PREVENT_SEARCH_ENGINE_INDEXING", "NO") == "YES" || HttpBasicAuth.should_enable? %>
+      <meta name="robots" content="noindex" />
+    <%% end %>
+
     <%%# Prevents the full URL, including potentially sensitive query strings being sent to external origins %>
     <meta name="referrer" content="origin-when-cross-origin">
 

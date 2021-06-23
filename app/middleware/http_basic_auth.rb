@@ -22,4 +22,10 @@ class HttpBasicAuth
   def password
     ENV["HTTP_BASIC_AUTH_PASSWORD"]
   end
+
+  class << self
+    def should_enable?
+      ENV["HTTP_BASIC_AUTH_USERNAME"] && ENV["HTTP_BASIC_AUTH_PASSWORD"]
+    end
+  end
 end
