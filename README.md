@@ -231,13 +231,14 @@ adds scss files to style a footer, header, navigation and search-bar, which are 
 #### foundation-react
 adds configuration, example of react, which is based on [rails-react](https://github.com/reactjs/react-rails)
 
-The relevant config files are found in `variants/frontend-react`
+The relevant config files are found in `variants/frontend-react`.
+
+An example react test using [react-testing-library](https://testing-library.com/docs/react-testing-library/intro/) is provided. Before you start adding more tests, it is recommended you read [common-mistakes-with-react-testing-library](https://kentcdodds.com/blog/common-mistakes-with-react-testing-library)
 
 #### sidekiq
 A job scheduler is a computer application for controlling unattended background program execution of jobs
 
 Note that the non enterprise version of [Sidekiq](https://github.com/mperham/sidekiq) doesn't do scheduling by default, it only executes jobs
-
 
 
 

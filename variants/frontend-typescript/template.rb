@@ -19,7 +19,7 @@ types_packages = %w[
 
 run "yarn remove prop-types"
 yarn_add_dependencies types_packages
-yarn_add_dev_dependencies %w[@typescript-eslint/parser @typescript-eslint/eslint-plugin]
+yarn_add_dev_dependencies %w[@typescript-eslint/parser @typescript-eslint/eslint-plugin @jest/types ts-jest]
 run "yarn install"
 
 %w[
@@ -35,6 +35,9 @@ end
 copy_file "tsconfig.json", force: true
 copy_file ".eslintrc.js", force: true
 copy_file "types.d.ts", force: true
+
+remove_file "jest.config.js"
+copy_file "jest.config.ts"
 
 gsub_file "app/frontend/channels/index.ts", '_channel\.js', '_channel\.ts'
 gsub_file(
@@ -93,3 +96,7 @@ append_to_file "bin/ci-run" do
     yarn run typecheck
   TYPECHECK
 end
+
+# for now just remove the testing-library tests
+
+remove_file "app/frontend/test/components/HelloWorld.spec.jsx"
